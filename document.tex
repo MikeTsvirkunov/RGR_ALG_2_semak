@@ -1,0 +1,279 @@
+\documentclass[a4paper]{article}
+\usepackage[14pt]{extsizes}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{mathtools}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\newcommand{\RomanNumeralCaps}[1]{\MakeUppercase{\romannumeral #1}}
+\usepackage[left=3cm,right=1.5cm,
+top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{enumitem}
+
+\begin{document}
+	\begin{center}
+		\textbf{ЗАДАЧА №1}
+	\end{center}
+	\par
+	Найти длины (нормы) элементов , и угол между ними в евклидовом пространстве 
+	всех многочленов с вещественными коэффициентами
+	и скалярным произведением $\int_{-1}^{1} f(x)g(x)dx$.
+	\par
+	\textbf{Дано:}\\
+	$$f(x), g(x) \in \mathbb{R}_{n}[x];$$
+	$$f(x)=x;$$
+	$$g(x)=-x+1;$$
+	\par
+	\textbf{Решение:}
+	\begin{enumerate}
+		\item Найдём длину вектора $f$.
+		$$|f|=\sqrt{(f, f)}=\sqrt{\int\limits_{-1}^{1} f^{2}(x)dx}=\sqrt{\int\limits_{-1}^{1} x^{2}dx}=\sqrt{\dfrac{x^3}{3}\bigg|_{-1}^{1}}=\sqrt{\dfrac{2}{3}}$$
+		\item Найдём длину вектора $g$.
+		$$|g|=\sqrt{(g, g)}=\sqrt{\int\limits_{-1}^{1} g^{2}(x)dx}=\sqrt{\int\limits_{-1}^{1} (1-x)^2dx}=\sqrt{\int\limits_{-1}^{1} (1-2x+x^2)dx}=$$
+		$$=\sqrt{\int\limits_{-1}^{1}dx-2\int\limits_{-1}^{1}xdx + \int\limits_{-1}^{1}x^2dx}=\sqrt{2-2\cdot0+\dfrac{2}{3}}=\sqrt{\dfrac{8}{3}}$$
+		\item Найдём скалярное произведение $(f, g)$.
+		$$(f, g)=\int\limits_{-1}^{1} f(x)g(x)dx=\int\limits_{-1}^{1}(x-x^2)dx=\int\limits_{-1}^{1}xdx - \int\limits_{-1}^{1}x^2dx=-\dfrac{2}{3}$$
+		\item Найдём угол между векторами $g$ и $f$.
+		$$\angle\widehat{g, f} = \arccos(\dfrac{(f, g)}{|f||g|}) = \arccos(\dfrac{2\cdot3}{3\cdot\sqrt{8}\cdot\sqrt{2}})=\arccos(\dfrac{-1}{2})=\dfrac{4\pi}{3}$$
+	\end{enumerate}
+	\par
+	Ответ: $|f|=\sqrt{\dfrac{2}{3}}$, $|g|=\sqrt{\dfrac{8}{3}}$, $\angle\widehat{g, f} = \dfrac{4\pi}{3}$.
+	\pagebreak
+	\begin{center}
+		\textbf{ЗАДАЧА №2}
+	\end{center}
+\par
+	Найти ортогональную проекцию и ортогональную составляющую 
+	вектора на подпространство $\mathbb{V}=\left\langle{ \overrightarrow{a},\overrightarrow{b},\overrightarrow{c}}\right\rangle$
+		\par
+	\textbf{Дано:}
+	$$\overrightarrow{a} = \begin{pmatrix} 0 \\ -1 \\ -1 \\ 1 \end{pmatrix}, \overrightarrow{b} = \begin{pmatrix} 1 \\ 2 \\ 2 \\ -1 \end{pmatrix}, \overrightarrow{c} = \begin{pmatrix} 1 \\ 1 \\ 1 \\ 0 \end{pmatrix}, \overrightarrow{x} = \begin{pmatrix} 3 \\ 3 \\ 2 \\ -2 \end{pmatrix}$$
+	\textbf{Решение:}
+	\begin{enumerate}
+		\item Ортаганализируем вектора $\overrightarrow{a}, \overrightarrow{b}, \overrightarrow{c}$.
+		$$\overrightarrow{a'} = \overrightarrow{a}=\begin{pmatrix} 0 \\ -1 \\ -1 \\ 1 \end{pmatrix}$$
+		$$\overrightarrow{b'}=\overrightarrow{b} - \dfrac{(\overrightarrow{b}, \overrightarrow{a'})}{(\overrightarrow{a'}, \overrightarrow{a'})}\overrightarrow{a'}= \begin{pmatrix} 1 \\ 2 \\ 2 \\ -1 \end{pmatrix} - \dfrac{-5}{3}\begin{pmatrix} 0 \\ -1 \\ -1 \\ 1 \end{pmatrix} = \dfrac{1}{3}\begin{pmatrix} 3 \\ 1 \\ 1 \\ 2 \end{pmatrix}$$
+		
+		$$\overrightarrow{c'}=\overrightarrow{c} - \dfrac{(\overrightarrow{c}, \overrightarrow{b'})}{(\overrightarrow{b'}, \overrightarrow{b'})}\overrightarrow{b'}-\dfrac{(\overrightarrow{c}, \overrightarrow{a'})}{(\overrightarrow{a'}, \overrightarrow{a'})}\overrightarrow{a'}= \begin{pmatrix} 1 \\ 1 \\ 1 \\ 0 \end{pmatrix} - \dfrac{1}{3}\begin{pmatrix} 3 \\ 1 \\ 1 \\ 2 \end{pmatrix}  - \dfrac{-2}{3}\begin{pmatrix} 0 \\ -1 \\ -1 \\ 1\end{pmatrix}= \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}$$
+		Ортоганальный базис $\mathbb{V}=\left\langle{ \overrightarrow{a'} = \begin{pmatrix} 0 \\ -1 \\ -1 \\ 1 \end{pmatrix},\overrightarrow{b'} = \begin{pmatrix} 3 \\ 1 \\ 1 \\ 2 \end{pmatrix}}\right\rangle$ 
+		\item Найдём базис ортоганального дополнения $\mathbb{V_\bot}$.
+		
+			$$(\overrightarrow{x}_{\mathbb{V_\bot}}, \overrightarrow{a'})=(\overrightarrow{x}_{\mathbb{V_\bot}}, \overrightarrow{b'})=0\Leftrightarrow
+			\begin{cases}
+				-\overline{x}_{\mathbb{V_\bot}2} - \overline{x}_{\mathbb{V_\bot}3}+\overline{x}_{\mathbb{V_\bot}4}= 0\\
+				3\overline{x}_{\mathbb{V_\bot}1}+\overline{x}_{\mathbb{V_\bot}2} + \overline{x}_{\mathbb{V_\bot}3}+2\overline{x}_{\mathbb{V_\bot}4}= 0
+			\end{cases}
+		\Leftrightarrow$$
+		%$$\Leftrightarrow\begin{pmatrix} 3 && 1 && 1 && 2 \\ 0 && -1 && -1 && 1\end{pmatrix}\thickapprox \begin{pmatrix} 1 && 0 && 0 && 1 \\ 0 && 1 && 1 && -1\end{pmatrix}	\Leftrightarrow$$%
+		$$\Leftrightarrow
+		\begin{cases}
+			\overline{x}_{\mathbb{V_\bot}1}=-\overline{x}_{\mathbb{V_\bot}4}\\
+			\overline{x}_{\mathbb{V_\bot}2}=- \overline{x}_{\mathbb{V_\bot}3}+\overline{x}_{\mathbb{V_\bot}4}= 0\\
+			\overline{x}_{\mathbb{V_\bot}3}=\overline{x}_{\mathbb{V_\bot}3}\\
+			\overline{x}_{\mathbb{V_\bot}4}= \overline{x}_{\mathbb{V_\bot}4}
+		\end{cases}
+		$$
+		Базис ортаганального дополнения $\mathbb{V^\bot}=\left\langle{ \overrightarrow{a_\bot} = \begin{pmatrix} -1 \\ 1 \\ 0 \\ 1 \end{pmatrix},\overrightarrow{b_\bot} = \begin{pmatrix} 0 \\ -1 \\ -1 \\ 0 \end{pmatrix}}\right\rangle$
+		\item Так как $\overrightarrow{x}=\overrightarrow{x_{\mathbb{V}}}+\overrightarrow{x}_{\mathbb{V_\bot}}$, то $\overrightarrow{x}=\overrightarrow{x_{\mathbb{V}}}+\overrightarrow{x}_{\mathbb{V_\bot}}=\alpha_1\overrightarrow{a'}+\alpha_2\overrightarrow{b'}+\beta_1\overrightarrow{a_\bot}+\beta_2\overrightarrow{b_\bot}$.
+		$$
+		\left(\begin{array}{rrrr|r}
+			0 & 3 & -1 & 0 & 3 \\
+			-1 & 1 & 1 & -1 & 3\\
+			-1 & 1 & 0 & -1 & 2\\
+			1 & 2 & 1 & 0 & -2
+		\end{array}\right)
+		\thickapprox
+		\left(\begin{array}{rrrr|r}
+			0 & 3 & 0 & 0 & 4 \\
+			0 & 0 & 1 & 0 & 1\\
+			-1 & 1 & 0 & -1 & 2\\
+			0 & 3 & 0 & -1 & -1
+		\end{array}\right)
+		\thickapprox
+		\left(\begin{array}{rrrr|r}
+			0 & 3 & 0 & 0 & 4 \\
+			0 & 0 & 1 & 0 & 1\\
+			3 & 0 & 0 & 0 & -17\\
+			0 & 0 & 0 & 1 & 5
+		\end{array}\right)
+		\Leftrightarrow
+		$$
+		$$\Leftrightarrow
+		\begin{cases}
+			\alpha_1=-\dfrac{17}{3}\\
+			\alpha_2=\dfrac{4}{3}\\
+			\beta_1=1\\
+			\beta_2=5
+		\end{cases}
+		\Rightarrow
+		\begin{cases}
+			\overrightarrow{x_{\mathbb{V}}}=-\dfrac{17}{3}\overrightarrow{a'} + \dfrac{4}{3}\overrightarrow{b'}=\begin{pmatrix} 4 & 7 & 7 & -3 \end{pmatrix}^T\\
+			\overrightarrow{x_{\mathbb{V_\bot}}}=\overrightarrow{a_\bot} + 5\overrightarrow{b_\bot}=\begin{pmatrix} -1 & -4 & -5 & 1 \end{pmatrix}^T
+		\end{cases}
+		$$
+	\end{enumerate}
+	Ответ: $\overrightarrow{x_{\mathbb{V}}}=\begin{pmatrix} 4 \\ 7 \\ 7 \\ -3 \end{pmatrix}$, $\overrightarrow{x_{\mathbb{V_\bot}}}=\begin{pmatrix} -1 \\ -4\\ -5 \\ 1 \end{pmatrix}$.
+
+	\begin{center}
+		\textbf{ЗАДАЧА №3}
+	\end{center}
+	\par
+		Является ли линейным оператором отображение $\varphi$? Ответ пояснить.
+	\par
+	\textbf{Дано:}\\
+	$$\varphi:\mathbb{R}_{n}[x]\rightarrow\mathbb{R}_{n}[x];$$
+	$$\varphi(f)=(f(1)+f(2))f',\quad\forall{f(x)} \in \mathbb{R}_{n}[x]$$
+	\par
+	\textbf{Решение:}
+	\begin{enumerate}
+		\item Проверим выполнение $\varphi(f+g)=\varphi(f)+\varphi(g)$.
+		$$\varphi(f+g)=((f+g)(1)+(f+g)(2))(f+g)'=$$
+		$$=(f(1)+g(1)+f(2)+g(2))f'+(f(1)+g(1)+f(2)+g(2))g'=$$
+		$$=f(1)g'+\textbf{g(1)g'}+f(2)g'+\textbf{g(2)g'}+\textbf{f(1)f'}+g(1)f'+\textbf{f(2)f'}+g(2)f'=$$
+		$$=f(1)g'+f(2)g'+g(1)f'+g(2)f'+\varphi(f)+\varphi(g) \Rightarrow \varphi(f+g)\not=\varphi(f)+\varphi(g)$$
+		Таким образом $\varphi$ -- не линейный оператор.
+	\end{enumerate}
+	Ответ: $\varphi$ - не линейный оператор.
+	
+	\begin{center}
+		\textbf{ЗАДАЧА №4}
+	\end{center}
+	\par
+	В каждом варианте надо найти кроме матрицы оператора ещё и базис ядра 
+	оператора и базис образа оператора.
+	по правилу . 
+	Найти матрицу оператора в естественном базисе.
+	\par
+	\textbf{Дано:}\\
+	$$\varphi:\mathbb{R}_{3}[x]\rightarrow\mathbb{R}_{3}[x];$$
+	$$\varphi(f)=(2x+2x^2)f'''+2(1+x)f'',\quad\forall{f(x)} \in \mathbb{R}_{3}[x]$$
+	$$\mathfrak{B} = [1, x, x^2, x^3]$$
+	\par
+	\textbf{Решение:}
+	\begin{enumerate}
+		\item Проверим выполнение $\varphi(f+g)=\varphi(f)+\varphi(g)$.
+		$$\varphi(f+g)=(2x+2x^2)(f+g)'''-2(1+x)(f+g)''=$$
+		$$=(2x+2x^2)(f)'''-2(1+x)(f)''+(2x+2x^2)(g)'''-2(1+x)(g)''=\varphi(f)+\varphi(g)$$
+		\item Проверим выполнение $\varphi(\alpha f)=\alpha\varphi(f)$.
+		$$\varphi(\alpha f)=(2x+2x^2)(\alpha f)'''-2(1+x)(\alpha f)''=(2x+2x^2)\alpha (f)'''-2(1+x)\alpha (f)''=$$
+		$$=\alpha((2x+2x^2)f'''-2(1+x)f'')=\alpha\varphi(f)$$
+		\item Найдём матрицу оператора в естественном базисе.
+		\begin{enumerate}
+			\item Найдём образы базисных векторов.
+			$\varphi(1) = 0 \Leftrightarrow \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}$,
+			$\varphi(x) = 0 \Leftrightarrow \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}$
+			\par
+			$\varphi(x^2) = -4-4x \Leftrightarrow \begin{pmatrix} -4 \\ -4 \\ 0 \\ 0 \end{pmatrix}$,
+			$\varphi(x^3) = 0 \Leftrightarrow \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}$
+			\item Найдём матрицу конкатинации этих векторов, которая и будет матрицей оператора $\varphi$.
+			$$A=(\varphi(1)|\varphi(x)|\varphi(x^2)|\varphi(x^3))=\begin{pmatrix} 0 && 0 && -4 && 0 \\ 0 && 0 && -4 && 0 \\ 0 && 0 && 0 && 0 \\ 0 && 0 && 0 && 0 \end{pmatrix}$$
+			
+		\end{enumerate}
+		\item Найдём базис ядра. Для этого решим ОСЛУ $A\cdot\overline{x} = \overline{\theta}$ методом Гауса.
+		$$\begin{pmatrix} 0 && 0 && -4 && 0 \\ 0 && 0 && -4 && 0 \\ 0 && 0 && 0 && 0 \\ 0 && 0 && 0 && 0 \end{pmatrix}\thickapprox\begin{pmatrix} 0 && 0 && -4 && 0 \\ 0 && 0 && -4 && 0\end{pmatrix}\thickapprox\begin{pmatrix} 0 && 0 && 1 && 0\end{pmatrix}\Leftrightarrow$$
+		$$\Leftrightarrow\begin{cases}
+			\overline{x}_1 = 0\\
+			\overline{x}_2 = \overline{x}_2\\
+			\overline{x}_3 = \overline{x}_3\\
+			\overline{x}_4 = \overline{x}_4\\
+		\end{cases}
+		\Leftrightarrow
+		\begin{pmatrix} \overline{x}_1 \\ \overline{x}_2 \\ \overline{x}_3 \\ \overline{x}_4 \end{pmatrix}=
+		\overline{x}_2\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}+
+		\overline{x}_3\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}+
+		\overline{x}_4\begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix}
+		$$
+		Таким образом базис $Ker(\varphi)=[\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix}] = [x, x^2, x^3]$
+		\item В данном случае очевидно, что базис $Im(\varphi) = [\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}] = [1]$
+	\end{enumerate}
+	\begin{center}
+		\textbf{ЗАДАЧА №5}
+	\end{center}
+	\par
+	Найти спектр и базисы собственных подпространств преобразования, заданного в 
+	естественном базисе матрицей А. Если возможно, найти подобную ей диагонального 
+	вида, указать диагонализирующий базис.
+	\par
+	\textbf{Дано:}
+	$$A=\begin{pmatrix} 1 && 3 && 3 \\ -3 && -5 && -3 \\ 3 && 3 && 1\end{pmatrix}$$
+	\par
+	\textbf{Решение:}
+	\begin{enumerate}
+		\item Найдём корни характеристического многочлена.
+			\item 	$$det\begin{pmatrix} 1-\lambda && 3 && 3 \\ -3 && -5-\lambda && -3 \\ 3 && 3 && 1-\lambda\end{pmatrix}=$$$$-(1-\lambda)^2(5+\lambda) + 9(1-\lambda)+9(1-\lambda)-27-27+45+9\lambda=$$
+			$$=-(1-\lambda)^2(5+\lambda)+9(1-\lambda)=(1-\lambda)(-(1-\lambda)(5+\lambda)+9)=(1-\lambda)(\lambda+2)^2$$
+		Таким образом $\delta(\varphi)=\{1_1, -2_2\}$.
+		\item Найдём собственное подпространство $S_1$ для собственного значения $1$.
+		$$\begin{pmatrix} 0 && 3 && 3 \\ -3 && -6 && -3 \\ 3 && 3 && 0\end{pmatrix}\thickapprox\begin{pmatrix} 0 && 1 && 1 \\ 1 && 1 && 0\end{pmatrix}\thickapprox\begin{pmatrix} 1 && 0 && -1 \\ 0 && 1 && 1\end{pmatrix}\Leftrightarrow$$
+		$$\Leftrightarrow\begin{cases}
+			\overline{x}_1 = \overline{x}_3\\
+			\overline{x}_2 = -\overline{x}_3\\
+			\overline{x}_3 = \overline{x}_3\\
+		\end{cases}\Leftrightarrow
+		\begin{pmatrix} \overline{x}_1 \\ \overline{x}_2 \\ \overline{x}_3 \end{pmatrix}=
+		\overline{x}_3\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}$$
+		Таким образом, базис $S_1=[\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}]$
+		\item Найдём собственное подпространство $S_{-2}$ для собственного значения $-2$.
+			$$\begin{pmatrix} 3 && 3 && 3 \\ -3 && -3 && -3 \\ 3 && 3 && 3\end{pmatrix}\thickapprox\begin{pmatrix} 1 && 1 && 1 \end{pmatrix}\Leftrightarrow$$
+			$$\Leftrightarrow\begin{cases}
+				\overline{x}_1 = -\overline{x}_2 - \overline{x}_3\\
+				\overline{x}_2 = \overline{x}_2\\
+				\overline{x}_3 = \overline{x}_3\\
+			\end{cases}\Leftrightarrow
+			\begin{pmatrix} \overline{x}_1 \\ \overline{x}_2 \\ \overline{x}_3 \end{pmatrix}=
+			\overline{x}_2\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix} + \overline{x}_3\begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}$$
+			Таким образом, базис $S_{-2}=[\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}]$
+		\item Так как $dim(S_{-2})+dim(S_{1})=3=1+2$, то диаганальная матрица существует.
+		\par
+		Диаганализирующий базис:
+		$$[\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}, \begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}]$$
+		Диаганальная матрица:
+		$$\begin{pmatrix} 1 && 0 && 0 \\ 0 && -2 && 0 \\ 0 && 0 && -2\end{pmatrix}$$
+	\end{enumerate}
+\par
+	\begin{center}
+		\textbf{ЗАДАЧА №6}
+	\end{center}
+	\par
+	Найти нормальный вид следующих квадратичных форм и приводящее к нему линейное 
+	невырожденное преобразование.
+	\par
+	\textbf{Дано:}
+	\par
+	$$f(x)=2x_1x_3+2x_1x_4+2x_2x_3-2x_2x_4+4x_3x_4$$
+	\par
+	\textbf{Решение:}
+	\begin{enumerate}
+		\item Произведём замену $\begin{cases}x_1=y_1+y_2\\x_3=y_1-y_2\end{cases}\Leftrightarrow\begin{cases}2y_2=x_1-x_3\\2y_1=x_1+x_3\end{cases}$.
+		
+		$$f(x)=2x_1x_3+2x_1x_4+2x_2x_3-2x_2x_4+4x_3x_4=$$
+		$$=2y_1^2-2y_2^2+2y_1x_4+2y_2x_4+2y_1x_2-2y_2x_2-2x_2x_4+4y_1x_4-4y_2x_4=$$
+		$$=2(y_1^2+2y_1(\frac{3}{2}x_4+\frac{1}{2}x_2))-2y_2^2+2y_2x_4-2y_2x_2-2x_2x_4-4y_2x_4=$$
+		$$=2(y_1^2+2y_1(\frac{3}{2}x_4+\frac{1}{2}x_2))-2(y_2^2+2y_2(\frac{1}{2}x_4-\frac{1}{2}x_2-x_4))-2x_2x_4=$$
+		$$=2(y_1+\frac{3}{2}x_4+\frac{1}{2}x_2)^2-2(\frac{3}{2}x_4+\frac{1}{2}x_2)^2-2(y_2+\frac{1}{2}x_4+\frac{1}{2}x_2)+2(\frac{1}{2}x_4+\frac{1}{2}x_2)^2-2x_2x_4=$$
+		$$=2(y_1+\frac{3}{2}x_4+\frac{1}{2}x_2)^2-2(y_2+\frac{1}{2}x_4+\frac{1}{2}x_2)-4x_4^2-2x_4x_2-2x_2x_4=$$
+		$$=2(y_1+\frac{3}{2}x_4+\frac{1}{2}x_2)^2-2(y_2+\frac{1}{2}x_4+\frac{1}{2}x_2)-4x_4^2-4x_4x_2+x_2^2-x_2^2=$$
+		$$=2(y_1+\frac{3}{2}x_4+\frac{1}{2}x_2)^2-2(y_2+\frac{1}{2}x_4+\frac{1}{2}x_2)-(2x_4+x_2)^2+x_2^2=$$
+		$$=2(\frac{1}{2}x_1+\frac{1}{2}x_3+\frac{1}{2}x_2+\frac{3}{2}x_4)^2-2(\frac{1}{2}x_1-\frac{1}{2}x_3+\frac{1}{2}x_2+\frac{1}{2}x_4)^2-$$
+		$$-(2x_4+x_2)^2+x_2^2=\frac{1}{2}(x_1+x_3+x_2+3x_4)^2-\frac{1}{2}(x_1-x_3+x_2+x_4)^2-$$
+		$$-(2x_4+x_2)^2+x_2^2$$
+		Таким образом получаем:
+		$$\begin{cases}
+			k_1 = x_1+x_3+x_2+3x_4\\
+			k_2 = x_1-x_3+x_2+x_4\\
+			k_3 = 2x_4+x_2\\
+			k_4 = x_2
+		\end{cases}\Leftrightarrow
+		K=\begin{pmatrix}1 & 1 & 1 & 1\\1 & 1 & -1 & 1\\0 & 0 & 1 & 2\\0 & 1 & 0& 0\end{pmatrix}X\Leftrightarrow$$
+		$$\Leftrightarrow X=\begin{pmatrix}1 & 1 & 1 & 1\\1 & 1 & -1 & 1\\0 & 0 & 1 & 2\\0 & 1 & 0& 0\end{pmatrix}^{-1}K$$
+		\item Найдём обратную матрицу ():
+	
+	\end{enumerate}
+	
+	
+\end{document}
